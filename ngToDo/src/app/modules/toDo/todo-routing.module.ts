@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TodoPageComponent } from './pages/todo-page/todo-page.component';
 
 const routes: Routes = [
   {
-    path: '**',
-    redirectTo: '/',
+    path: '',
+    component: TodoPageComponent
   }
 ];
 
@@ -12,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class TodoRoutingModule { }

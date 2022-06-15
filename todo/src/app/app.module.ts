@@ -8,11 +8,9 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoModule } from './modules/toDo/todo.module';
 import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     FormsModule,
@@ -28,7 +26,6 @@ import { FormsModule } from '@angular/forms';
     EffectsModule.forRoot([]),
     TodoModule,
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,14 @@
 import { Action } from "@ngrx/store";
+import { todoState } from "./todo.reducer";
 
 export enum todoActionsType {
   create = '[TODO] create todo items',
   delete = '[TODO] delete todo items',
   toggle = '[TODO] toggle todo items',
   edit = '[TODO] edit todo items',
+  Load = '[TODO] load todo state',
 };
+
 
 export class TodoCreateAction implements Action {
   readonly type = todoActionsType.create;
@@ -32,4 +35,10 @@ export class TodoEditAction implements Action {
   constructor(public payload:{id:number, name:string} ) {
   }
 }
-export type TodoActions = TodoCreateAction | TodoDeleteAction | TodoToggleAction | TodoEditAction;
+export class TodoLoadAction implements Action {
+  readonly type = todoActionsType.Load;
+
+  constructor(public payload:{state:todoState} ) {
+  }
+}
+export type TodoActions = TodoCreateAction | TodoDeleteAction | TodoToggleAction | TodoEditAction | TodoLoadAction;

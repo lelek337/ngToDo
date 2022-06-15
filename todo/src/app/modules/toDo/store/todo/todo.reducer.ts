@@ -1,6 +1,6 @@
 import { state } from "@angular/animations";
 import { Todo } from "../../models/todo";
-import { TodoActions, todoActionsType } from "./todo.actions";
+import { TodoActions, todoActionsType, TodoLoadAction } from "./todo.actions";
 export const TODO_REDUCER_NODE = 'todo';
 export interface todoState {
   idIncrement:number;
@@ -42,12 +42,16 @@ export const todoReducer = (state:todoState = instalState, action:TodoActions) =
           ...state,
           name:action.payload.name
         } : todo)
-      }
+      };
      case todoActionsType.delete:
       return {
         ...state,
         todoList: state.todoList.filter(todo => todo.id !== action.payload.id)
-      }
+      };
+      case todoActionsType.Load:
+        return {
+          ...action.payload.state
+        }
     default:
       return state;
   }

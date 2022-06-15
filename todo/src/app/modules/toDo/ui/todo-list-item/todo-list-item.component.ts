@@ -10,11 +10,16 @@ export class TodoListItemComponent implements OnInit {
   @Input()
   todo: Todo;
   @Output()
-  delete = new EventEmitter<number>();
+  edit = new EventEmitter<void>();
   @Output()
-  toggle = new EventEmitter<number>();
+  delete = new EventEmitter<void>();
+  @Output()
+  toggle = new EventEmitter<void>();
   constructor() { }
   ngOnInit(): void {
+  }
+  onEdit() {
+    this.edit.emit();
   }
   onDelete() {
     this.delete.emit();
